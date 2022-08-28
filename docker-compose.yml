@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+
+  app:
+    container_name: app
+    build: .
+    # command: bash -c "python /app/tf_test.py"
+    command: bash -c "python /app/tensorflow_gpu_test/main.py"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [ gpu ]
+
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
