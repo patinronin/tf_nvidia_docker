@@ -19,9 +19,13 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
             sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
 
 sudo apt-get update
+
 sudo apt-get install -y nvidia-docker2
+
 sudo systemctl restart docker
+
 sudo docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
+
 sudo docker run --gpus all -v $PWD:/test -it tensorflow/tensorflow:latest-gpu
 
 """
