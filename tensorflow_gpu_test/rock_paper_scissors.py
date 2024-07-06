@@ -1,7 +1,7 @@
 import os
 import tensorflow as tf
-from keras_preprocessing import image
-from keras_preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import numpy as np
 
 def create_train_validator(TRAINING_DIR):
@@ -73,7 +73,7 @@ def predict(path, model):
     print(classes)
 
 def full_process():
-    container_route = "/app/tensorflow_gpu_test"
+    container_route = os.getcwd() + "/tensorflow_gpu_test"
     rock_dir = os.path.join(container_route + '/data/rps/rock')
     paper_dir = os.path.join(container_route + '/data/rps/paper')
     scissors_dir = os.path.join(container_route + '/data/rps/scissors')
